@@ -6,15 +6,11 @@ def collect_news():
     news = [
         {
             "title": "Argentina inflation expectations rise",
-            "content": "Economists expect inflation to remain high in Argentina due to fiscal adjustments."
+            "content": "Economists expect inflation to remain high in Argentina."
         },
         {
-            "title": "Global trade slows in 2026",
-            "content": "World trade growth is expected to slow due to geopolitical tensions."
-        },
-        {
-            "title": "China increases imports of soybeans",
-            "content": "China increases soybean imports impacting Latin American exporters."
+            "title": "Global trade slows",
+            "content": "World trade growth slows due to geopolitical tensions."
         }
     ]
 
@@ -23,4 +19,4 @@ def collect_news():
     with open("data/news.json", "w") as f:
         json.dump(news, f, indent=4)
 
-    print("News collected successfully")
+    print("News collected")

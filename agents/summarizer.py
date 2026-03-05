@@ -1,4 +1,4 @@
-[import json
+import json
 
 def summarize_news():
     with open("data/news.json", "r") as f:

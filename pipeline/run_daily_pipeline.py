@@ -1,30 +1,16 @@
-name: Daily Economic Observatory
+from agents.data_collector import collect_news
+from agents.summarizer import summarize_news
 
-on:
-  schedule:
-    - cron: "0 8 * * *"
-  workflow_dispatch:
+def main():
 
-jobs:
-  run-pipeline:
+    print("Collecting news...")
+    collect_news()
 
-    runs-on: ubuntu-latest
+    print("Summarizing news...")
+    summarize_news()
 
-    steps:
+    print("Pipeline completed.")
 
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Install Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Add project to PYTHONPATH
-        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
-
-      - name: Run pipeline
+if __name__ == "__main__":
+    main()
         run: python pipeline/run_daily_pipeline.py
